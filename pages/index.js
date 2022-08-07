@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   const sendMail  = useCallback(async () => {
     await mail({
-      receivers: 'bossbele@larven.io, mkoela@larven.io',
+      receivers: 'adambeleko@gmail.com',
       sender: "Larven LLC",
       subject: 'Meeting',
       text: "Let's meet up at 10:00"
