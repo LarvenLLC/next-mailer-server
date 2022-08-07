@@ -1,23 +1,30 @@
 import mail from 'next-mailer';
 import Head from 'next/head'
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  useEffect(() => {
-    mail({
+  const sendMail  = useCallback(async () => {
+    await mail({
       receivers: 'bossbele@larven.io, mkoela@larven.io',
       sender: "Larven LLC",
       subject: 'Meeting',
       text: "Let's meet up at 10:00"
     });
-    mail({
-      receivers: 'bossbele@larven.io, mkoela@larven.io',
-      sender: "Larven LLC",
-      subject: 'Meeting',
-      html: "<b>Let's meet up at 10:00</b>"
-    });
-  },[]);
+    alert('Mail sent successfully')
+  },[])
+
+  const triggerMail = useCallback(async () => {
+    const response = await fetch(`/api/hello`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    const data = await response.json()
+    return alert(data?.name)
+  },[])
 
   return (
     <div className={styles.container}>
@@ -32,10 +39,21 @@ export default function Home() {
           Welcome to <a href="https://github.com/LarvenLLC/next-mailer-server">NextMailer!</a>
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <div>
+          Client Side API:
+          <p className={styles.description}>
+            Get started by sending an email{' '}
+            <button className={styles.button} onClick={sendMail}>Send Mail</button>
+          </p>
+        </div>
+
+        <div>
+          Server Side API:
+          <p className={styles.description}>
+            Send mails in between your server side code{' '}
+            <button className={styles.button} onClick={triggerMail}>Send Mail</button>
+          </p>
+        </div>
 
         <div className={styles.grid}>
           <a href="https://github.com/LarvenLLC/next-mailer-server#readme" className={styles.card}>
