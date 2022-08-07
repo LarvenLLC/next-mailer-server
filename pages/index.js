@@ -1,6 +1,5 @@
 import mail from 'next-mailer';
 import Head from 'next/head'
-import Image from 'next/image'
 import { useEffect } from 'react';
 import styles from '../styles/Home.module.css'
 
@@ -63,7 +62,7 @@ export default function Home() {
           >
             <h2>Support &rarr;</h2>
             <p>
-              Support the development of next-mailer, the npm package that made this repository possible. Make awesome projects using it, Star it and, if you can, say "hello".
+              Support the development of next-mailer, the npm package that made this repository possible. Make awesome projects using it, Star it and, if you can, say &quote;hello&quote;.
             </p>
           </a>
         </div>
