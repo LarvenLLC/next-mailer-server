@@ -4,9 +4,19 @@ import { useCallback, useEffect } from 'react';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const sendMail  = useCallback(async () => {
+  const sendMail  = useCallback(async (e) => {
+    e.preventDefault();
+    const form = {};
+    const formData = new FormData(e.target);
+    formData.forEach((value, key) => {
+      if (typeof value === 'string') {
+        form[key] = value.trim();
+        return;
+      }
+      form[key] = value;
+    });
     await mail({
-      receivers: 'adambeleko@gmail.com',
+      receivers: form.email,
       sender: "Larven LLC",
       subject: 'Meeting',
       text: "Let's meet up at 10:00"
@@ -41,15 +51,20 @@ export default function Home() {
 
         <div>
           Client Side API:
-          <p className={styles.description}>
+          <br/>
+          <p>
             Get started by sending an email{' '}
-            <button className={styles.button} onClick={sendMail}>Send Mail</button>
+            <form onSubmit={sendMail}>
+            <input name="email" type="email" placeholder='Receiver' />
+            <button className={styles.button} type="submit">Send Mail</button>
+            </form>
           </p>
         </div>
 
         <div>
           Server Side API:
-          <p className={styles.description}>
+          <br/>
+          <p>
             Send mails in between your server side code{' '}
             <button className={styles.button} onClick={triggerMail}>Send Mail</button>
           </p>
