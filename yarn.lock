@@ -1211,10 +1211,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next-mailer@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/next-mailer/-/next-mailer-1.1.0.tgz#cdcd97bff10a1c05171f8ef126ec1c96e2f354ee"
-  integrity sha512-CNYBwSFvv7a0JaTlm8M9LGjbgfY/c+qtpb++0grHd+MVV3C2y45KOgtOCd0SINeF3astmz+sqeGS0Dty+QQVrA==
+next-mailer@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/next-mailer/-/next-mailer-1.2.0.tgz#4ce36c8d676128070ae7eae7cebbf56836658a49"
+  integrity sha512-a5JXVFyFDGpGh4zXgAxnklQE19BhHfmwlgVsO3EL4g7FXhtd1a9Ph8ZsugVLEKaB/H58TzqGG12F8vrGOMB6FQ==
   dependencies:
     nodemailer "^6.7.7"
 
