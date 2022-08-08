@@ -1,6 +1,6 @@
-import mail from 'next-mailer';
+import mail from 'next-mailer/react';
 import Head from 'next/head'
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -52,13 +52,15 @@ export default function Home() {
         <div>
           Client Side API:
           <br/>
-          <p>
+          <div>
             Get started by sending an email{' '}
-            <form onSubmit={sendMail}>
-            <input name="email" type="email" placeholder='Receiver' />
-            <button className={styles.button} type="submit">Send Mail</button>
-            </form>
-          </p>
+            <div>
+              <form onSubmit={sendMail}>
+                <input name="email" type="email" placeholder='Receiver' />
+                <button className={styles.button} type="submit">Send Mail</button>
+              </form>
+            </div>
+          </div>
         </div>
 
         <div>
